@@ -8,20 +8,22 @@
 import Foundation
 import Combine
 
-class OnBoardingViewModel {
-    let coordinator: OnBoardingCoordinator?
+class OnBoardingViewModel: ViewModel {
+    typealias Coo = OnBoardingCoordinator
+
+    var coordinator: OnBoardingCoordinator?
     var triggerPublisher = PassthroughSubject<Destination, Never>()
-    private var cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
 
     init(coordinator: OnBoardingCoordinator) {
         self.coordinator = coordinator
     }
     
-    func start() {
+    func bind() {
         triggerPublisher.sink { [weak self] destination in
             switch destination {
             case .main:
-                self?.coordinator?.showOnBoardingToMain()
+                self?.coordinator?.showOnBoardingViewController()
             default: break
             }
         }

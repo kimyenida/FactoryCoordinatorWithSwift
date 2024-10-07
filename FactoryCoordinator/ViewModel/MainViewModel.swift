@@ -8,16 +8,18 @@
 import Foundation
 import Combine
 
-class MainViewModel {
-    let coordinator: MainCoordinator?
+class MainViewModel: ViewModel {
+    typealias Coo = MainCoordinator
+    
+    var coordinator: MainCoordinator?
     var triggerPublisher = PassthroughSubject<Destination, Never>()
-    private var cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
 
     init(coordinator: MainCoordinator) {
         self.coordinator = coordinator
     }
     
-    func start() {
+    func bind() {
         triggerPublisher.sink { [weak self] destination in
             switch destination {
             case .setting:

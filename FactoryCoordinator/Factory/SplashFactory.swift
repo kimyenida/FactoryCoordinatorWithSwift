@@ -7,13 +7,17 @@
 
 import UIKit
 
-class SplashFactory {
-    func makeSplashViewModel(coordinator: SplashCoordinator) -> SplashViewModel {
+class SplashFactory: Factory {
+    typealias Coo = SplashCoordinator
+    typealias VM = SplashViewModel
+    typealias VC = SplashViewController
+    
+    func makeViewModel(coordinator: SplashCoordinator) -> SplashViewModel {
         return SplashViewModel(coordinator: coordinator)
     }
     
-    func makeSplashViewController(coordinator: SplashCoordinator) -> SplashViewController {
-        let viewModel = self.makeSplashViewModel(coordinator: coordinator)
+    func makeViewController(coordinator: SplashCoordinator) -> SplashViewController {
+        let viewModel = self.makeViewModel(coordinator: coordinator)
         return SplashViewController(viewModel: viewModel)
     }
 }

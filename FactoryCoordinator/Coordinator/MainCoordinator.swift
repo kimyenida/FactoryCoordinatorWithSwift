@@ -8,7 +8,7 @@
 import UIKit
 
 class MainCoordinator: Coordinator {
-    weak var parendCoordinator: Coordinator?
+    weak var parentCoordinator: Coordinator?
     private let factory: MainFactory
 
     var children: [Coordinator] = []
@@ -20,16 +20,20 @@ class MainCoordinator: Coordinator {
         self.factory = factory
     }
     
+    func start() {
+        showMainViewController()
+    }
+    
     func showMainViewController() {
-        let mainViewController = factory.makeMainViewController(coordinator: self)
+        let mainViewController = factory.makeViewController(coordinator: self)
         self.navigationController.viewControllers.removeAll()
         self.navigationController.pushViewController(mainViewController, animated: false)
     }
     
     func startSettingCoordinator() {
         let settingCoordinator = SettingCoordinator(navigationController: navigationController, factory: SettingFactory())
-        settingCoordinator.parendCoordinator = self
+        settingCoordinator.parentCoordinator = self
         children.append(settingCoordinator)
-        settingCoordinator.showSettingController()
+        settingCoordinator.start()
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
-    weak var parendCoordinator: Coordinator?
+    weak var parentCoordinator: Coordinator?
     
     var children: [Coordinator] = []
     
@@ -18,11 +18,15 @@ class AppCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
+    func start() {
+        startSplashCoordinator()
+    }
+    
     func startSplashCoordinator() {
         let splashCoordinator = SplashCoordinator(navigationController: navigationController, factory: SplashFactory())
         children.removeAll()
-        splashCoordinator.parendCoordinator = self
+        splashCoordinator.parentCoordinator = self
         children.append(splashCoordinator)
-        splashCoordinator.showSplashViewController()
+        splashCoordinator.start()
     }
 }

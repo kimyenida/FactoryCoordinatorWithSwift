@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         self.view.backgroundColor = .green
         // Do any additional setup after loading the view.
         setUI()
-        viewModel?.start()
+        viewModel?.bind()
     }
     
     private func setUI() {

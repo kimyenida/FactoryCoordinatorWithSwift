@@ -8,13 +8,17 @@
 import UIKit
 import Foundation
 
-class OnBoardingFactory {
-    func makeOnBoardingViewModel(coordinator: OnBoardingCoordinator) -> OnBoardingViewModel {
+class OnBoardingFactory: Factory {
+    typealias Coo = OnBoardingCoordinator
+    typealias VM = OnBoardingViewModel
+    typealias VC = OnBoardingViewController
+
+    func makeViewModel(coordinator: OnBoardingCoordinator) -> OnBoardingViewModel {
         return OnBoardingViewModel(coordinator: coordinator)
     }
     
-    func makeOnBoardingViewController(coordinator: OnBoardingCoordinator) -> OnBoardingViewController {
-        let viewModel = makeOnBoardingViewModel(coordinator: coordinator)
+    func makeViewController(coordinator: OnBoardingCoordinator) -> OnBoardingViewController {
+        let viewModel = makeViewModel(coordinator: coordinator)
         return OnBoardingViewController(viewModel: viewModel)
     }
 }

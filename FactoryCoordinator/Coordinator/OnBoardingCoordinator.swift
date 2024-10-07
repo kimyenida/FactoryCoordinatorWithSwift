@@ -9,7 +9,7 @@
 import UIKit
 
 class OnBoardingCoordinator: Coordinator {
-    weak var parendCoordinator: Coordinator?
+    weak var parentCoordinator: Coordinator?
     private let factory: OnBoardingFactory
     
     var children: [Coordinator] = []
@@ -21,13 +21,16 @@ class OnBoardingCoordinator: Coordinator {
         self.factory = factory
     }
     
+    func start() {
+        showOnBoardingViewController()
+    }
+    
     func showOnBoardingViewController() {
-        let onBoardingViewController = factory.makeOnBoardingViewController(coordinator: self)
+        let onBoardingViewController = factory.makeViewController(coordinator: self)
         self.navigationController.pushViewController(onBoardingViewController, animated: false)
     }
     
-    func showOnBoardingToMain() {
-        let splashCoordinator = parendCoordinator as? SplashCoordinator
-        splashCoordinator?.showCheckUpdatePopup()
+    func proceedToMain() {
+        (parentCoordinator as? SplashCoordinator)?.showCheckUpdatePopup()
     }
 }

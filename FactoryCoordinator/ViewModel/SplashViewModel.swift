@@ -8,23 +8,24 @@
 import Combine
 import Foundation
 
-class SplashViewModel {
-    private let coordinator: SplashCoordinator
-    private var cancellables = Set<AnyCancellable>()
-    
+class SplashViewModel: ViewModel {
+    typealias Coo = SplashCoordinator
+
+    var coordinator: SplashCoordinator?
+    var cancellables = Set<AnyCancellable>()
     var triggerPublisher = PassthroughSubject<Destination, Never>()
     
     init(coordinator: SplashCoordinator) {
         self.coordinator = coordinator
     }
     
-    func start() {
+    func bind() {
         triggerPublisher.sink { [weak self] destination in
             switch destination {
             case .main:
-                self?.coordinator.showCheckUpdatePopup()
+                self?.coordinator?.showCheckUpdatePopup()
             case .onBoarding:
-                self?.coordinator.startOnBoardingCoordinator()
+                self?.coordinator?.startOnBoardingCoordinator()
             default: break
             }
         }

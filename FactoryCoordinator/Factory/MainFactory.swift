@@ -8,13 +8,17 @@
 import UIKit
 import Foundation
 
-class MainFactory {
-    func makeMainViewModel(coordinator: MainCoordinator) -> MainViewModel {
+class MainFactory: Factory {
+    typealias Coo = MainCoordinator
+    typealias VM = MainViewModel
+    typealias VC = MainViewController
+
+    func makeViewModel(coordinator: MainCoordinator) -> MainViewModel {
         return MainViewModel(coordinator: coordinator)
     }
     
-    func makeMainViewController(coordinator: MainCoordinator) -> MainViewController {
-        let viewModel = self.makeMainViewModel(coordinator: coordinator)
+    func makeViewController(coordinator: MainCoordinator) -> MainViewController {
+        let viewModel = self.makeViewModel(coordinator: coordinator)
         return MainViewController(viewModel: viewModel)
     }
 }

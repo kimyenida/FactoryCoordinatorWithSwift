@@ -21,7 +21,7 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.start()
+        viewModel?.bind()
         setSettingViewUI()
     }
     

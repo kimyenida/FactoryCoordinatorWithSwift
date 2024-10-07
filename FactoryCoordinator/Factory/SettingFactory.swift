@@ -7,13 +7,17 @@
 
 import UIKit
 
-class SettingFactory {
-    func makeSettingViewModel(coordinator: SettingCoordinator) -> SettingViewModel {
+class SettingFactory: Factory {
+    typealias Coo = SettingCoordinator
+    typealias VM = SettingViewModel
+    typealias VC = SettingViewController
+
+    func makeViewModel(coordinator: SettingCoordinator) -> SettingViewModel {
         return SettingViewModel(coordinator: coordinator)
     }
     
-    func makeSettingViewController(coordinator: SettingCoordinator) -> SettingViewController {
-        let viewModel = self.makeSettingViewModel(coordinator: coordinator)
+    func makeViewController(coordinator: SettingCoordinator) -> SettingViewController {
+        let viewModel = self.makeViewModel(coordinator: coordinator)
         return SettingViewController(viewModel: viewModel)
     }
 }
