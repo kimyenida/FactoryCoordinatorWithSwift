@@ -8,8 +8,8 @@
 import Combine
 
 protocol ViewModel {
-    associatedtype Coo: Coordinator
-    var coordinator: Coo? { get set }
+    associatedtype CoordinatorTypes: Coordinator
+    var coordinator: CoordinatorTypes? { get set }
     var triggerPublisher: PassthroughSubject<Destination, Never> { get set }
     var cancellables: Set<AnyCancellable> { get set }
     func bind()

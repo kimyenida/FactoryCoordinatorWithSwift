@@ -10,30 +10,30 @@ import Combine
 
 class SplashCoordinator: Coordinator {
     weak var parentCoordinator: Coordinator?
-    private var factory: SplashFactory
     private var cancellables = Set<AnyCancellable>()
-
+    var coordinatorFactory: CoordinatorFactory?
     var children: [Coordinator] = []
     
     var navigationController: UINavigationController
 
-    init(navigationController: UINavigationController, factory: SplashFactory) {
+    init(coordinatorFactory: CoordinatorFactory?, navigationController: UINavigationController) {
+        self.coordinatorFactory = coordinatorFactory
         self.navigationController = navigationController
-        self.factory = factory
     }
-    
     
     func start() {
         showSplashViewController()
     }
     
     func showSplashViewController() {
-        let splashViewController = factory.makeViewController(coordinator: self)
+        guard let splashFactory = self.coordinatorFactory?.createViewFactory(type: .splash) else { return }
+        let splashViewController = splashFactory.makeViewController(coordinator: self)
         self.navigationController.pushViewController(splashViewController, animated: false)
     }
     
     func startMainCoordinator() {
-        let mainCoordinator = MainCoordinator(navigationController: navigationController, factory: MainFactory())
+        guard let coordinatorFactory = self.coordinatorFactory else { return }
+        let mainCoordinator = coordinatorFactory.createCoordinator(type: .main, navigationController: navigationController)
         children.removeAll()
         mainCoordinator.parentCoordinator = self
         children.append(mainCoordinator)
@@ -41,7 +41,8 @@ class SplashCoordinator: Coordinator {
     }
     
     func startOnBoardingCoordinator() {
-        let onBoardingCoordinator = OnBoardingCoordinator(navigationController: navigationController, factory: OnBoardingFactory())
+        guard let coordinatorFactory = self.coordinatorFactory else { return }
+        let onBoardingCoordinator = coordinatorFactory.createCoordinator(type: .onBoarding, navigationController: navigationController)
         children.removeAll()
         onBoardingCoordinator.parentCoordinator = self
         children.append(onBoardingCoordinator)

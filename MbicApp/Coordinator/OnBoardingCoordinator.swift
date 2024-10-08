@@ -10,15 +10,13 @@ import UIKit
 
 class OnBoardingCoordinator: Coordinator {
     weak var parentCoordinator: Coordinator?
-    private let factory: OnBoardingFactory
-    
+    var coordinatorFactory: CoordinatorFactory?
     var children: [Coordinator] = []
-    
     var navigationController: UINavigationController
     
-    init(navigationController: UINavigationController, factory: OnBoardingFactory) {
+    init(coordinatorFactory: CoordinatorFactory?, navigationController: UINavigationController) {
+        self.coordinatorFactory = coordinatorFactory
         self.navigationController = navigationController
-        self.factory = factory
     }
     
     func start() {
@@ -26,6 +24,7 @@ class OnBoardingCoordinator: Coordinator {
     }
     
     func showOnBoardingViewController() {
+        guard let factory = coordinatorFactory?.createViewFactory(type: .onBoarding) else { return }
         let onBoardingViewController = factory.makeViewController(coordinator: self)
         self.navigationController.pushViewController(onBoardingViewController, animated: false)
     }

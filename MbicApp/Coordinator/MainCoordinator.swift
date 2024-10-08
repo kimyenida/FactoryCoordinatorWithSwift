@@ -9,15 +9,13 @@ import UIKit
 
 class MainCoordinator: Coordinator {
     weak var parentCoordinator: Coordinator?
-    private let factory: MainFactory
-
+    var coordinatorFactory: CoordinatorFactory?
     var children: [Coordinator] = []
-    
     var navigationController: UINavigationController
     
-    init(navigationController: UINavigationController, factory: MainFactory) {
+    init(coordinatorFactory: CoordinatorFactory? = nil, navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.factory = factory
+        self.coordinatorFactory = coordinatorFactory
     }
     
     func start() {
@@ -25,13 +23,14 @@ class MainCoordinator: Coordinator {
     }
     
     func showMainViewController() {
+        guard let factory = coordinatorFactory?.createViewFactory(type: .main) else { return }
         let mainViewController = factory.makeViewController(coordinator: self)
         self.navigationController.viewControllers.removeAll()
         self.navigationController.pushViewController(mainViewController, animated: false)
     }
     
     func startSettingCoordinator() {
-        let settingCoordinator = SettingCoordinator(navigationController: navigationController, factory: SettingFactory())
+        guard let settingCoordinator = coordinatorFactory?.createCoordinator(type: .setting, navigationController: navigationController) else { return }
         settingCoordinator.parentCoordinator = self
         children.append(settingCoordinator)
         settingCoordinator.start()

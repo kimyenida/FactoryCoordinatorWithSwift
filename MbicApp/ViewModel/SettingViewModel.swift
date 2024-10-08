@@ -8,14 +8,12 @@
 import Foundation
 import Combine
 
-class SettingViewModel: ViewModel {
-    typealias Coo = SettingCoordinator
-    
+class SettingViewModel: ViewModel {    
     var coordinator: SettingCoordinator?
     var triggerPublisher = PassthroughSubject<Destination, Never>()
     var cancellables = Set<AnyCancellable>()
 
-    init(coordinator: SettingCoordinator) {
+    init(coordinator: SettingCoordinator?) {
         self.coordinator = coordinator
     }
     

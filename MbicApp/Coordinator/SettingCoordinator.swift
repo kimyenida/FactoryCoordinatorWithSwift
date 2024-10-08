@@ -9,15 +9,13 @@ import UIKit
 
 class SettingCoordinator: Coordinator {
     weak var parentCoordinator: Coordinator?
-    private var factory: SettingFactory
-    
+    var coordinatorFactory: CoordinatorFactory?
     var children: [Coordinator] = []
-    
     var navigationController: UINavigationController
     
-    init(navigationController: UINavigationController, factory: SettingFactory) {
+    init(coordinatorFactory: CoordinatorFactory? = nil, navigationController: UINavigationController) {
+        self.coordinatorFactory = coordinatorFactory
         self.navigationController = navigationController
-        self.factory = factory
     }
     
     func start() {
@@ -25,12 +23,14 @@ class SettingCoordinator: Coordinator {
     }
     
     func showSettingController() {
+        guard let factory = coordinatorFactory?.createViewFactory(type: .setting) else { return }
         let settingController = factory.makeViewController(coordinator: self)
         self.navigationController.pushViewController(settingController, animated: false)
     }
     
-    func showSettingModal() {
-        let settingController = factory.makeViewController(coordinator: self)
-        self.navigationController.topViewController?.present(settingController, animated: false)
-    }
+//    func showSettingModal() {
+//        guard let factory = coordinatorFactory?.createViewFactory(type: .setting) else { return }
+//        let settingController = factory.makeViewController(coordinator: self)
+//        self.navigationController.topViewController?.present(settingController, animated: false)
+//    }
 }

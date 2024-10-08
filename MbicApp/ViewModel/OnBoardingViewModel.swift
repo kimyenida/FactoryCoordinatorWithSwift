@@ -9,13 +9,11 @@ import Foundation
 import Combine
 
 class OnBoardingViewModel: ViewModel {
-    typealias Coo = OnBoardingCoordinator
-
     var coordinator: OnBoardingCoordinator?
     var triggerPublisher = PassthroughSubject<Destination, Never>()
     var cancellables = Set<AnyCancellable>()
 
-    init(coordinator: OnBoardingCoordinator) {
+    init(coordinator: OnBoardingCoordinator?) {
         self.coordinator = coordinator
     }
     

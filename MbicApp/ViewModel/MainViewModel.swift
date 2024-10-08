@@ -9,13 +9,11 @@ import Foundation
 import Combine
 
 class MainViewModel: ViewModel {
-    typealias Coo = MainCoordinator
-    
     var coordinator: MainCoordinator?
     var triggerPublisher = PassthroughSubject<Destination, Never>()
     var cancellables = Set<AnyCancellable>()
 
-    init(coordinator: MainCoordinator) {
+    init(coordinator: MainCoordinator?) {
         self.coordinator = coordinator
     }
     

@@ -9,13 +9,11 @@ import Combine
 import Foundation
 
 class SplashViewModel: ViewModel {
-    typealias Coo = SplashCoordinator
-
     var coordinator: SplashCoordinator?
     var cancellables = Set<AnyCancellable>()
     var triggerPublisher = PassthroughSubject<Destination, Never>()
     
-    init(coordinator: SplashCoordinator) {
+    init(coordinator: SplashCoordinator?) {
         self.coordinator = coordinator
     }
     

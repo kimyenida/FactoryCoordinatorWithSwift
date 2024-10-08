@@ -6,6 +6,7 @@
 //
 
 enum Destination {
+    case splash
     case onBoarding
     case main
     case setting
