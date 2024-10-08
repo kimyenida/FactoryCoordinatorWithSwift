@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		9D83D6872CAF868D00BE2C4A /* FactoryCoordinator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactoryCoordinator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D83D6872CAF868D00BE2C4A /* MbicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MbicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		9D83D6992CAF868E00BE2C4A /* Exceptions for "FactoryCoordinator" folder in "FactoryCoordinator" target */ = {
+		9D83D6992CAF868E00BE2C4A /* Exceptions for "MbicApp" folder in "MbicApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 9D83D6862CAF868D00BE2C4A /* FactoryCoordinator */;
+			target = 9D83D6862CAF868D00BE2C4A /* MbicApp */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		9D83D6892CAF868D00BE2C4A /* FactoryCoordinator */ = {
+		9D83D6892CAF868D00BE2C4A /* MbicApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				9D83D6992CAF868E00BE2C4A /* Exceptions for "FactoryCoordinator" folder in "FactoryCoordinator" target */,
+				9D83D6992CAF868E00BE2C4A /* Exceptions for "MbicApp" folder in "MbicApp" target */,
 			);
-			path = FactoryCoordinator;
+			path = MbicApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -45,7 +45,7 @@
 		9D83D67E2CAF868D00BE2C4A = {
 			isa = PBXGroup;
 			children = (
-				9D83D6892CAF868D00BE2C4A /* FactoryCoordinator */,
+				9D83D6892CAF868D00BE2C4A /* MbicApp */,
 				9D83D6882CAF868D00BE2C4A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,7 +53,7 @@
 		9D83D6882CAF868D00BE2C4A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9D83D6872CAF868D00BE2C4A /* FactoryCoordinator.app */,
+				9D83D6872CAF868D00BE2C4A /* MbicApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,9 +61,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9D83D6862CAF868D00BE2C4A /* FactoryCoordinator */ = {
+		9D83D6862CAF868D00BE2C4A /* MbicApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D83D69A2CAF868E00BE2C4A /* Build configuration list for PBXNativeTarget "FactoryCoordinator" */;
+			buildConfigurationList = 9D83D69A2CAF868E00BE2C4A /* Build configuration list for PBXNativeTarget "MbicApp" */;
 			buildPhases = (
 				9D83D6832CAF868D00BE2C4A /* Sources */,
 				9D83D6842CAF868D00BE2C4A /* Frameworks */,
@@ -74,13 +74,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				9D83D6892CAF868D00BE2C4A /* FactoryCoordinator */,
+				9D83D6892CAF868D00BE2C4A /* MbicApp */,
 			);
-			name = FactoryCoordinator;
+			name = MbicApp;
 			packageProductDependencies = (
 			);
 			productName = FactoryCoordinator;
-			productReference = 9D83D6872CAF868D00BE2C4A /* FactoryCoordinator.app */;
+			productReference = 9D83D6872CAF868D00BE2C4A /* MbicApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9D83D6822CAF868D00BE2C4A /* Build configuration list for PBXProject "FactoryCoordinator" */;
+			buildConfigurationList = 9D83D6822CAF868D00BE2C4A /* Build configuration list for PBXProject "MbicApp" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9D83D6862CAF868D00BE2C4A /* FactoryCoordinator */,
+				9D83D6862CAF868D00BE2C4A /* MbicApp */,
 			);
 		};
 /* End PBXProject section */
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LEDYP92F5W;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FactoryCoordinator/Info.plist;
+				INFOPLIST_FILE = MbicApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -176,7 +176,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LEDYP92F5W;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FactoryCoordinator/Info.plist;
+				INFOPLIST_FILE = MbicApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -318,7 +318,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9D83D6822CAF868D00BE2C4A /* Build configuration list for PBXProject "FactoryCoordinator" */ = {
+		9D83D6822CAF868D00BE2C4A /* Build configuration list for PBXProject "MbicApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D83D69D2CAF868E00BE2C4A /* Debug */,
@@ -327,7 +327,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D83D69A2CAF868E00BE2C4A /* Build configuration list for PBXNativeTarget "FactoryCoordinator" */ = {
+		9D83D69A2CAF868E00BE2C4A /* Build configuration list for PBXNativeTarget "MbicApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D83D69B2CAF868E00BE2C4A /* Debug */,

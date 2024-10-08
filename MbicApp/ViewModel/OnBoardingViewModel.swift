@@ -21,7 +21,7 @@ class OnBoardingViewModel: ViewModel {
         triggerPublisher.sink { [weak self] destination in
             switch destination {
             case .main:
-                self?.coordinator?.showOnBoardingViewController()
+                self?.coordinator?.proceedToMain()
             default: break
             }
         }
